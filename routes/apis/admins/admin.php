@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\Admin\AdminLoginController;
 Route::group([
     'middleware' => 'api',
     'prefix' => 'admin'

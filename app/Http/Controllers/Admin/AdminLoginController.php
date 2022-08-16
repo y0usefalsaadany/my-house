@@ -73,9 +73,9 @@ class AdminLoginController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function refresh() {
-        return $this->createNewToken(auth()->refresh());
-    }
+    // public function refresh() {
+    //     return $this->createNewToken(auth()->refresh());
+    // }
     /**
      * Get the authenticated User.
      *
@@ -95,7 +95,7 @@ class AdminLoginController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
+            'expires_in' => auth()->factory()->getTTL() * 60  ,
             'user' => auth()->guard('admin-api')->user()
         ]);
     }
