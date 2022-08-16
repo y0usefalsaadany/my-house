@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminLoginController;
 Route::group([
     'middleware' => 'api',
-
+    'prefix' => 'admin'
 ], function ($router) {
-    Route::post('/login', [AdminLoginController::class, 'login']);
+    Route::post('/login', [AdminLoginController::class, 'login'])->middleware('throttle:attack');
     Route::post('/register', [AdminLoginController::class, 'register']);
     Route::post('/logout', [AdminLoginController::class, 'logout']);
     Route::post('/refresh', [AdminLoginController::class, 'refresh']);
